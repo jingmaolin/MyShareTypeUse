@@ -1,0 +1,16 @@
+应用接受来自其他应用分享的数据（如：文本，图片，email，PDF等等）
+
+在AndroidManifest中设置如下：
+        <activity android:name=".ShareDealActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="image/*"/>
+                <data android:mimeType="text/*"/>
+            </intent-filter>
+        </activity>
+        其中mimeType为可接受的类型
+
+目前现状：
+    ①同一网址，在不同浏览器下分享到统一app，其分享的类型不同
+    ②各个浏览器分享信息中包含的字段名称可能不一样，兼容时可能需要做大量的判断
